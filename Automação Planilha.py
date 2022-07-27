@@ -46,9 +46,12 @@ print(tabela)
 
 quantidade = tabela["Quantidade"].sum()
 faturamento = tabela["Valor Final"].sum()
+empresas = tabela["ID Loja"].value_counts(normalize=True).map("{:.2%}".format)
 
 print(f'Produtos: {quantidade:,}')
 print(f'R$: {faturamento:,.2f}')
+print(f'Dominância das empresas: {empresas}')
+
 
 #Passo 5: Entrar no email 
 pyautogui.hotkey("ctrl", "t")
@@ -79,6 +82,8 @@ Bom dia!
 
 O faturamento de ontem foi de: R${faturamento:,.2f}
 A quantidade de produtos vendidos foi: {quantidade:,}
+Dominância das Empresas: 
+{empresas}
 
 Abs,
 Nicolas."""
